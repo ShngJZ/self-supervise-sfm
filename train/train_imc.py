@@ -367,8 +367,8 @@ def train_epoch(model, dataloader, optimizer, scheduler, scaler, params, rank, s
                 reloc_list=reloc_list
             )
         
-        # # Perform sanity check on relative poses before computing loss
-        # sanity_check_relative_poses(predictions, batch, device, save_dir=os.path.join(results_dir, "sanity_check"))
+        # Perform sanity check on relative poses before computing loss
+        sanity_check_relative_poses(predictions, batch, device, save_dir=os.path.join(results_dir, "sanity_check"))
         
         # Compute loss outside autocast for full precision numerical stability
         # Enable recording every 10k steps when saving checkpoints
